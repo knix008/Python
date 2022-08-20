@@ -8,6 +8,7 @@ COPY requirements.txt .
 RUN apk add --no-cache py3-pip && \
     pip3 install -r requirements.txt && \
     apk del py3-pip
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 COPY echo.py .
 CMD ["python", "echo.py"]
